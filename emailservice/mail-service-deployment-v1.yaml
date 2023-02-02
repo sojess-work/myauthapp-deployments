@@ -21,3 +21,13 @@ spec:
         env:
           - name: VERSION
             value: v1.0.0
+          - name: SMTP_USER
+              valueFrom:
+                secretKeyRef:
+                  name:smtp-credentials
+                  key: smtp_username
+                - name: SMTP_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: smtp-credentials
+                      key: smtp_password
