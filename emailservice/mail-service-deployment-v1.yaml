@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-auth-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-auth-app
+  template:
+    metadata:
+      labels:
+        app: my-auth-app
+        version: v1.0.0
+    spec:
+      containers:
+      - name: my-auth-app
+        image: gcr.io/verdant-tempest-376308/myauthapp:mailservice-0.0.1-SNAPSHOT
+        ports:
+        - containerPort: 8081
+        env:
+          - name: VERSION
+            value: v1.0.0
