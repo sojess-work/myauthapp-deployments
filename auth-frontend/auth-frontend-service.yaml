@@ -4,9 +4,9 @@ metadata:
   name: my-auth-app-svc
 spec:
   selector:
-    app: my-auth-app-backend
+    app: my-auth-frontend
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 80
   type: LoadBalancer

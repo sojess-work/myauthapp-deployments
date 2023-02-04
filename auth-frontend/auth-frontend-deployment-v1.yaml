@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-auth-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-auth-frontend
+  template:
+    metadata:
+      labels:
+        app: my-auth-frontend
+        version: v1.0.0
+    spec:
+      containers:
+        - name: my-auth-app
+          image: gcr.io/verdant-tempest-376308/myauthapp-frontend:auth-frontend-0.0.1-SNAPSHOT
+          ports:
+            - containerPort: 80
