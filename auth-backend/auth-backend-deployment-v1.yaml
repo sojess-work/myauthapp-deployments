@@ -16,6 +16,7 @@ spec:
       containers:
         - name: my-auth-app-backend
           image: gcr.io/verdant-tempest-376308/myAuthAppBackend:auth-0.0.1-SNAPSHOT
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
           env:
